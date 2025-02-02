@@ -1,5 +1,5 @@
 import Image from "next/image"
-import { ArrowRight } from "lucide-react"
+// import { ArrowRight } from "lucide-react"
 
 const Hero = () => {
   return (
@@ -15,6 +15,10 @@ const Hero = () => {
               深層学習、最適化、デジタルツイン、ロボティクス×AIに興味があります。<br/>
               大学卒業後は院に進学する予定です。
             </p>
+            <p>
+              所属学部 : https://www.oit.ac.jp/rd/department/system/ <br />
+              知能情報処理研究室 : https://www.oit.ac.jp/rd/labs/seo-lab/
+            </p>
             {/* <p>
             知能情報処理研究室：
             </p> */}
@@ -24,7 +28,7 @@ const Hero = () => {
             </button> */}
           </div>
           <div className="image-container">
-            <Image src="/icon.jpg" alt="icon" width={300} height={300} className="profile-image" />
+            <Image src="/icon.jpg" alt="icon" style={{ borderRadius: "50%" }} width={360} height={360} className="profile-image" />
           </div>
         </div>
       </div>

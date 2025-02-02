@@ -31,9 +31,9 @@ const Header = () => {
             <li>
               <Link href="#blog">Projects</Link>
             </li>
-            <li>
+            {/* <li>
               <Link href="#contact">Contact</Link>
-            </li>
+            </li> */}
           </ul>
         </nav>
         <div className="right-section">

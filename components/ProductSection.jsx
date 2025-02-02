@@ -51,10 +51,10 @@ const ProductSection = () => {
           </div>
           <div className="card">
             <Image
-              src="/product3.jpg"
+              src="/AI-XR.jpg"
               alt="エコフレンドリーなIoTデバイス"
               width={300}
-              height={200}
+              height={300}
               className="product-image"
             />
             <h3>運動促進システム(プロトタイプ)</h3>
