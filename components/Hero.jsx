@@ -1,3 +1,5 @@
+"use client"
+
 import { useEffect, useRef } from "react"
 import Image from "next/image"
 
@@ -89,7 +91,14 @@ const Hero = (props) => {
             </p>
           </div>
           <div className="image-container animate-image">
-            <Image src="/icon.jpg" alt="icon" width={360} height={360} className="profile-image" style={{ borderRadius: "50%", objectFit: "cover" }} />
+            <Image
+              src="/icon.jpg"
+              alt="icon"
+              width={400}
+              height={400}
+              className="profile-image"
+              style={{ borderRadius: "50%", objectFit: "cover" }}
+            />
           </div>
         </div>
       </div>
@@ -97,9 +106,12 @@ const Hero = (props) => {
         .hero {
           background-color: var(--background-color);
           color: var(--text-color);
-          padding: 2rem 0 4rem; /* Updated padding */
+          padding: 0;
           overflow: hidden;
           position: relative;
+          min-height: 92vh;
+          display: flex;
+          align-items: center;
         }
         .background-animation {
           position: absolute;
@@ -112,34 +124,39 @@ const Hero = (props) => {
         .container {
           position: relative;
           z-index: 2;
+          width: 100%;
+          max-width: 1200px; /* Adjusted to match header width */
+          margin: 0 auto;
+          padding: 0 2rem;
         }
         
         .content {
-          display: flex;
-          align-items: flex-start;
-          justify-content: space-between;
+          display: grid;
+          grid-template-columns: 1fr 1fr; /* Two equal columns */
+          align-items: center;
           gap: 2rem;
+          transform: translateX(20px); /* Move entire content slightly right */
         }
         .text-content {
-          flex: 1;
-          max-width: 600px;
           padding-top: 1rem;
+          padding-right: 2rem; /* Add space to the right */
         }
         h1 {
-          font-size: 4rem;
+          font-size: 4.5rem;
           font-weight: bold;
-          margin-bottom: 1rem;
+          margin-bottom: 1.5rem;
           color: var(--primary-color);
+          white-space: nowrap;
         }
         .description {
-          font-size: 1.2rem;
+          font-size: 1.3rem;
           line-height: 1.8;
-          margin-bottom: 2rem;
+          margin-bottom: 2.5rem;
           color: var(--text-light-color);
         }
         .links {
-          font-size: 1rem;
-          line-height: 1.6;
+          font-size: 1.1rem;
+          line-height: 1.8;
           color: var(--text-light-color);
         }
         .links a {
@@ -151,16 +168,13 @@ const Hero = (props) => {
           color: var(--accent-color);
         }
         .image-container {
-          flex: 0 0 auto;
           display: flex;
           justify-content: center;
-          align-items: center; /* Added styles for image-container */
-          align-self: center;
+          align-items: center;
         }
         .profile-image {
-          // border-radius: 50%;
-          border: 5px solid var(--surface-color);
-          box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+          border: 6px solid var(--surface-color);
+          box-shadow: 0 12px 36px rgba(0, 0, 0, 0.3);
         }
         .animate-text {
           opacity: 0;
@@ -188,29 +202,74 @@ const Hero = (props) => {
         .description { animation-delay: 0.4s; }
         .links { animation-delay: 0.6s; }
         .animate-image { animation-delay: 0.8s; }
+        
+        /* Media queries for responsive design */
         @media (max-width: 968px) {
+          .hero {
+            min-height: auto;
+            padding: 2rem 0 4rem;
+            display: block;
+          }
+          .container {
+            padding: 0 1rem; /* Reduced padding on mobile */
+          }
           .content {
-            flex-direction: column-reverse;
+            grid-template-columns: 1fr; /* Single column on mobile */
             text-align: center;
             gap: 2rem;
+            transform: translateX(0); /* Reset the transform on mobile */
+            margin: 0 auto; /* Center the content */
+            max-width: 100%; /* Ensure content doesn't overflow */
           }
           .text-content {
-            max-width: 100%;
-            padding-top: 0;
+            padding-right: 0;
+            order: 2; /* Move text below image on mobile */
+            margin: 0 auto; /* Center text content */
+            width: 100%; /* Full width */
+          }
+          .image-container {
+            order: 1; /* Move image above text on mobile */
+            margin: 0 auto; /* Center image container */
+            width: 100%; /* Full width */
+            display: flex;
+            justify-content: center; /* Center horizontally */
           }
           h1 {
             font-size: 3.5rem;
+            white-space: normal;
+          }
+          .description {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+          }
+          .links {
+            font-size: 1rem;
+            line-height: 1.6;
+          }
+          .profile-image {
+            width: 300px;
+            height: 300px;
+            border-width: 5px;
+            margin: 0 auto; /* Center the image itself */
           }
         }
+        
         @media (max-width: 640px) {
           .hero {
-            padding: 1.5rem 0 3rem; /* Updated padding for smaller screens */
+            padding: 1.5rem 0 3rem;
+          }
+          .container {
+            padding: 0 1rem; /* Consistent padding */
           }
           h1 {
             font-size: 3rem;
           }
           .description {
             font-size: 1.1rem;
+          }
+          .profile-image {
+            width: 250px;
+            height: 250px;
           }
         }
       `}</style>

@@ -1,3 +1,5 @@
+"use client"
+
 import { Rocket } from "lucide-react"
 import Image from "next/image"
 
@@ -10,7 +12,9 @@ const ProductSection = (props) => {
         </h2>
         <div className="grid">
           <div className="card">
-            <Image src="/drone.jpg" alt="drone" width={300} height={200} className="product-image" objectFit="cover" />
+            <div className="image-wrapper">
+              <Image src="/drone.jpg" alt="drone" width={300} height={200} className="product-image" />
+            </div>
             <h3>出席確認Drone</h3>
             <p>
               顔認識や画像処理を活用し、制御を実現しました。 また、Drone操作のUIとしてWebAppを作成しました。
@@ -21,14 +25,15 @@ const ProductSection = (props) => {
             </a> */}
           </div>
           <div className="card">
-            <Image
-              src="/resucure_robot.jpg"
-              alt="resucure_robot"
-              width={300}
-              height={200}
-              className="product-image"
-              objectFit="cover"
-            />
+            <div className="image-wrapper">
+              <Image
+                src="/resucure_robot.jpg"
+                alt="resucure_robot"
+                width={300}
+                height={200}
+                className="product-image"
+              />
+            </div>
             <h3>Resucure Robot</h3>
             <p>
               大学主催のPBLプロジェクトにて、タイのタマサート大学と 協力してレスキューロボットを開発しました。
@@ -40,14 +45,15 @@ const ProductSection = (props) => {
             </a> */}
           </div>
           <div className="card">
-            <Image
-              src="/AI-XR.jpg"
-              alt="エコフレンドリーなIoTデバイス"
-              width={300}
-              height={200}
-              className="product-image"
-              objectFit="cover"
-            />
+            <div className="image-wrapper">
+              <Image
+                src="/AI-XR.jpg"
+                alt="エコフレンドリーなIoTデバイス"
+                width={300}
+                height={200}
+                className="product-image"
+              />
+            </div>
             <h3>運動促進システム</h3>
             <p>
               Unityを用いて、長時間のデスクワークによる健康リスクを軽減するためのシステムです。
@@ -66,16 +72,24 @@ const ProductSection = (props) => {
         .product {
           background-color: var(--background-color);
         }
-        .product-image {
-          border-radius: 8px;
-          margin-bottom: 1rem;
+        .image-wrapper {
+          width: 100%;
           height: 200px;
+          border-radius: 8px;
+          overflow: hidden; /* Ensure image doesn't overflow */
+          margin-bottom: 1rem;
+        }
+        .product-image {
+          width: 100%;
+          height: 100%;
           object-fit: cover;
+          display: block; /* Remove any extra space */
         }
         .card {
           display: flex;
           flex-direction: column;
           height: 100%;
+          padding: 1.5rem; /* Added padding to card */
         }
         p {
           color: var(--text-light-color);
@@ -84,6 +98,22 @@ const ProductSection = (props) => {
         .link {
           margin-top: auto;
           align-self: flex-start;
+        }
+        
+        /* Ensure consistent spacing on all screen sizes */
+        @media (max-width: 768px) {
+          .card {
+            padding: 1.25rem; /* Slightly reduced padding on smaller screens */
+          }
+          .image-wrapper {
+            height: 180px; /* Slightly smaller height on medium screens */
+          }
+        }
+        
+        @media (max-width: 480px) {
+          .image-wrapper {
+            height: 160px; /* Even smaller height on very small screens */
+          }
         }
       `}</style>
     </section>

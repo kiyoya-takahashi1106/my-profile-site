@@ -49,7 +49,7 @@ const Header = () => {
           </ul>
         </nav>
         <div className="right-section">
-          <p className="subtitle">OIT B3</p>
+          <p className="subtitle">OIT B4</p>
           <div className="social-links">
             <a href="https://github.com/kiyoya-takahashi1106" target="_blank" rel="noopener noreferrer">
               <GitHub size={24} />
