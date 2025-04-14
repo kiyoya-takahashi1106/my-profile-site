@@ -10,7 +10,7 @@ export default function Home() {
   return (
     <div>
       <Head>
-        <title>髙橋 清彌 - ポートフォリオ</title>
+        <title>髙橋 清彌</title>
         <meta name="description" content="髙橋 清彌のポートフォリオサイト" />
         <link rel="icon" href="/favicon.ico" />
         <link
